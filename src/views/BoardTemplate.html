@@ -1,0 +1,20 @@
+<div class="playerBoard outlined">
+		<h2>{{ player.name }}</h2>
+		<h3>Tower health: {{ player.towerHealth }}/100</h3>
+		<h3>Wall health: {{ player.wallHealth }}</h3>
+		<h4>Generators/Alchemy: {{ player.generators }}/{{ player.alchemy }}</h4>
+		<h4>Mines/Stones: {{ player.mines }}/{{ player.stones }}</h4>
+		<h4>Barracks/Minions: {{ player.barracks }}/{{ player.minions }}</h4>
+		<div class="cardRowWrapper">
+			<div ng-repeat="card in player.hand" ng-class="{ playableCard: (player.isActivePlayer && cardIsPlayable({player:player, playerEffects:card.playerEffects})) }" class="card outlined" ng-click="!player.isActivePlayer || play({card:card, event:$event})">
+				<h4>{{ card.name }}</h4>
+				<span>{{ card.description }}</span>
+				<div class="cost">
+					<h5>Cost:</h5>
+					<span>Alchemy: {{ card.playerEffects.alchemy || 0 }}</span>
+					<span>Stones: {{ card.playerEffects.stones || 0 }}</span>
+					<span>Minions: {{ card.playerEffects.minions || 0 }}</span>
+				</div>
+			</div>
+		</div>
+	</div>

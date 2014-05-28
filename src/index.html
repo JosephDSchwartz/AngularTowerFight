@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="content/css/main.css" />
+		<script src="content/scripts/angular-1.1.15.min.js"></script>
+		<script src="content/scripts/jquery-1.9.1.min.js"></script>
+		<script src="content/scripts/instructionsController.js"></script>
+		<script src="content/scripts/gameController.js"></script>
+		<script src="content/scripts/playerService.js"></script>
+		<script src="content/scripts/cardService.js"></script>
+		<script src="content/scripts/boardDirective.js"></script>
+		<script src="content/scripts/main.js"></script>
+	</head>
+	<body ng-app="towerFight">
+		<div class="menu">
+			<ul>
+				<li><a id="playMenuOption" href="#/">Play Game</a></li>
+				<li> | </li>
+				<li><a id="instructionsMenuOption" href="#/instructions">Instructions</a></li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="page" ng-view>
+			</div>
+		</div>
+	</body>
+</html>
