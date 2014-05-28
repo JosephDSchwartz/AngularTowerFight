@@ -35,8 +35,8 @@ function CardService() {
 
 		/* Degrade resources */
 		{ name: "Power syphon", playerEffects: { alchemy: 5 }, opponentEffects: { generators: -1 }, description: '+5 alchemy. -1 enemy generators.' },
-		{ name: "Collapse!", playerEffects: { }, opponentEffects: { mines: -1 }, description: '-1 enemy mines.' },
-		{ name: "Poison the supplies", playerEffects: { }, opponentEffects: { barracks: -1 }, description: '-1 enemy barracks.' },
+		{ name: "Collapse!", playerEffects: { stones: -2 }, opponentEffects: { mines: -1 }, description: '-1 enemy mines.' },
+		{ name: "Poison the supplies", playerEffects: { minions: -2 }, opponentEffects: { barracks: -1 }, description: '-1 enemy barracks.' },
 
 		/* Improved resources */
 		{ name: "Backup generator", playerEffects: { generators: 1 }, opponentEffects: { }, description: '+1 generator.' },
