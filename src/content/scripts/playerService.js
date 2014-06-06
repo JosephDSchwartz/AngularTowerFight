@@ -16,7 +16,7 @@ function PlayerService(cardService) {
 	function setupService() {
 		player1 = {
 			number: 0,
-			name: "Player 1",
+			name: 'Player 1',
 			towerHealth: defaultStats.towerHealth,
 			wallHealth: defaultStats.wallHealth,
 			generators: defaultStats.generators,
@@ -28,7 +28,7 @@ function PlayerService(cardService) {
 		};
 		player2 = {
 			number: 1,
-			name: "Player 2",
+			name: 'Player 2',
 			towerHealth: defaultStats.towerHealth,
 			wallHealth: defaultStats.wallHealth,
 			generators: defaultStats.generators,

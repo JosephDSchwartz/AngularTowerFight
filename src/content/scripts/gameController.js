@@ -1,10 +1,17 @@
-function GameController($scope, playerService, cardService) {
-	var players = playerService.getPlayers(),
-		currentPlayer = players[0];
+function GameController(playerService, cardService, $scope) {
+	var players,
+		currentPlayer;
 
-	$scope.player1 = players[0];
-	$scope.player2 = players[1];
-	$scope.canPlayCard = playerService.canPlayCard;
+	function setupController(newGame) {
+		players = playerService.getPlayers();
+		currentPlayer = players[0];
+		$scope.player1 = players[0];
+		$scope.player2 = players[1];
+		$scope.canPlayCard = playerService.canPlayCard;
+		$scope.showBoards = !newGame;
+		$scope.winner = undefined;
+		currentPlayer.isActivePlayer = true;
+	}
 
 	function getPlayersOpponent(player) {
 		return player == players[0] ? players[1] : players[0];
@@ -34,6 +41,14 @@ function GameController($scope, playerService, cardService) {
 		endTurn();
 	};
 
+	$scope.submitName = function() {
+		if($scope.playerName) {
+			$scope.player1.name = $scope.playerName;
+			$scope.playerName = '';
+			$scope.showBoards = true;
+		}
+	};
+
 	$scope.playCard = function(card, $event) {
 		if($scope.winner) {
 			return;
@@ -47,8 +62,12 @@ function GameController($scope, playerService, cardService) {
 		}
 	};
 
-	$scope.resetGame = function() {
+	$scope.resetGame = function($event) {
+		$event.preventDefault();
+		var currentName = $scope.player1.name;
 		playerService.resetService();
+		setupController(false);
+		$scope.player1.name = currentName;
 	};
 
 	$scope.discardCard = function(card) {
@@ -57,5 +76,5 @@ function GameController($scope, playerService, cardService) {
 		endTurn();
 	};
 
-	currentPlayer.isActivePlayer = true;
+	setupController(true);
 };

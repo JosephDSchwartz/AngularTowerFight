@@ -1,49 +1,19 @@
-<div id="gameBoard" class="fillSpace">
+<div id="gameBoard" class="fillSpace gameBoard">
 	<div ng-class="{ show: winner, hide: !winner }" class="winnerDiv">
 		<h2>Game Over!!</h2>
 		<h3>Winner: {{ winner.name }}</h3>
-		<h3><a href="#" ng-click="resetGame()">Play again.</a></h3>
+		<h3><a href="#" ng-click="resetGame($event)">Play again.</a></h3>
 	</div>
-	<!--<div id="opponentBoard" class="playerBoard outlined">
-		<h2>{{ player1.name }}</h2>
-		<h3>Tower health: {{ player1.towerHealth }}/100</h3>
-		<h3>Wall health: {{ player1.wallHealth }}</h3>
-		<h4>Generators/Alchemy: {{ player1.generators }}/{{ player1.alchemy }}</h4>
-		<h4>Mines/Stones: {{ player1.mines }}/{{ player1.stones }}</h4>
-		<h4>Barracks/Minions: {{ player1.barracks }}/{{ player1.minions }}</h4>
-		<div class="cardRowWrapper">
-			<div ng-repeat="card in player1.hand" ng-class="{ playableCard: (player1.isActivePlayer && canPlayCard(player1, card.playerEffects)) }" class="card outlined" ng-click="!player1.isActivePlayer || playCard(card)">
-				<h4>{{ card.name }}</h4>
-				<span>{{ card.description }}</span>
-				<div class="cost">
-					<h5>Cost:</h5>
-					<span>Alchemy: {{ card.playerEffects.alchemy || 0 }}</span>
-					<span>Stones: {{ card.playerEffects.stones || 0 }}</span>
-					<span>Minions: {{ card.playerEffects.minions || 0 }}</span>
-				</div>
-			</div>
-		</div>
-	</div>-->
-	<board player="player1" card-Is-Playable="canPlayCard(player, playerEffects)" play="playCard(card, event)"></board>
-	<board player="player2" card-Is-Playable="canPlayCard(player, playerEffects)" play="playCard(card, event)"></board>
-	<!--<div id="playerBoard" class="playerBoard outlined">
-		<h2>{{ player2.name }}</h2>
-		<h3>Tower health: {{ player2.towerHealth }}/100</h3>
-		<h3>Wall health: {{ player2.wallHealth }}</h3>
-		<h4>Generators/Alchemy: {{ player2.generators }}/{{ player2.alchemy }}</h4>
-		<h4>Mines/Stones: {{ player2.mines }}/{{ player2.stones }}</h4>
-		<h4>Barracks/Minions: {{ player2.barracks }}/{{ player2.minions }}</h4>
-		<div class="cardRowWrapper">
-			<div ng-repeat="card in player2.hand" ng-class="{ playableCard: (player2.isActivePlayer && canPlayCard(player2, card.playerEffects)) }" class="card outlined" ng-click="!player2.isActivePlayer || playCard(card)">
-				<h4>{{ card.name }}</h4>
-				<span>{{ card.description }}</span>
-				<div class="cost">
-					<h5>Cost:</h5>
-					<span>Alchemy: {{ card.playerEffects.alchemy || 0 }}</span>
-					<span>Stones: {{ card.playerEffects.stones || 0 }}</span>
-					<span>Minions: {{ card.playerEffects.minions || 0 }}</span>
-				</div>
-			</div>
-		</div>
-	</div>-->
+	<div class="center" ng-class="{ show: !showBoards, hide: showBoards }">
+		<form ng-submit="submitName()">
+			<h4>Enter Your Name</h4>
+			<input type="text" ng-model="playerName" name="playerName" />
+			<input type="submit" value="Play" />
+		</form>
+	</div>
+
+	<div class="fillSpace" ng-class="{ show: showBoards, hide: !showBoards }">
+		<board player="player2" showBoard="showBoards" card-Is-Playable="canPlayCard(player, playerEffects)" play="playCard(card, event)"></board>
+		<board player="player1" showBoard="showBoards" card-Is-Playable="canPlayCard(player, playerEffects)" play="playCard(card, event)"></board>
+	</div>
 </div>

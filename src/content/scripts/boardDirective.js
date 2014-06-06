@@ -3,6 +3,7 @@ function BoardDirective() {
 		restrict: 'E',
 		scope: { 
 			player: '=',
+			showBoard: '=',
 			cardIsPlayable: '&',
 			play: '&'
 		},

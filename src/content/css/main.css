@@ -32,6 +32,11 @@ hr {
 	display: inline;
 }
 
+.center {
+	margin: 0 auto;
+	width: 20%;
+}
+
 .outlined {
 	border-style: solid; 
 	border-width: thin;
@@ -40,6 +45,10 @@ hr {
 .fillSpace {
 	width: 100%;
 	height: 100%;
+}
+
+.gameBoard {
+	text-align: center;
 }
 
 .playerBoard {
