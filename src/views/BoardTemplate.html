@@ -1,5 +1,18 @@
 <div class="playerBoard outlined">
-	<h2>{{ player.name }}</h2>
+	<div class="previousCard outlined card">
+		<h3>PreviousCard</h3>
+		<div class="fillSpace">
+			<h4>{{ player.lastCardPlayed.name }}<span ng-class="{ show: player.lastCardPlayed.wasDiscarded, hide: !player.lastCardPlayed.wasDiscarded }"> (discarded)</span></h4>
+			<span>{{ player.lastCardPlayed.description }}</span>
+			<div class="cost">
+				<h5>Cost:</h5>
+				<span>Alchemy: {{ player.lastCardPlayed.playerEffects.alchemy || 0 }}</span>
+				<span>Stones: {{ player.lastCardPlayed.playerEffects.stones || 0 }}</span>
+				<span>Minions: {{ player.lastCardPlayed.playerEffects.minions || 0 }}</span>
+			</div>
+		</div>
+	</div>
+	<h2><span ng-class="{ activePlayer: player.isActivePlayer }">{{ player.name }}</span></h2>
 	<h3>Tower health: {{ player.towerHealth }}/100</h3>
 	<h3>Wall health: {{ player.wallHealth }}</h3>
 	<h4>Generators/Alchemy: {{ player.generators }}/{{ player.alchemy }}</h4>

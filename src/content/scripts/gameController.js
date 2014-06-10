@@ -10,6 +10,7 @@ function GameController(playerService, cardService, $scope) {
 		$scope.canPlayCard = playerService.canPlayCard;
 		$scope.showBoards = !newGame;
 		$scope.winner = undefined;
+		$scope.discardedText = '';
 		currentPlayer.isActivePlayer = true;
 	}
 
@@ -55,9 +56,13 @@ function GameController(playerService, cardService, $scope) {
 		}
 		
 		if($event.altKey) {
+			currentPlayer.lastCardPlayed = card;
+			currentPlayer.lastCardPlayed.wasDiscarded = true;
 			$scope.discardCard(card);
 		}
 		else if(playerService.canPlayCard(currentPlayer, card.playerEffects)) {
+			$scope.discardedText = '';
+			currentPlayer.lastCardPlayed = card;
 			takeTurn(currentPlayer, getPlayersOpponent(currentPlayer), card);
 		}
 	};

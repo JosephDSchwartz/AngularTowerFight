@@ -17,7 +17,7 @@ function CardService() {
 		{ name: "Improved wall", playerEffects: { wallHealth: 4, stones: -5 }, opponentEffects: { }, description: '+4 wall.' },
 		{ name: "A pretty normal wall", playerEffects: { wallHealth: 5, stones: -7 }, opponentEffects: { }, description: '+5 wall.' },
 		{ name: "Reinforce wall", playerEffects: { wallHealth: 8, stones: -10 }, opponentEffects: { }, description: '+8 wall.' },
-		{ name: "Rock golems", playerEffects: { towerHealth: 5, wallHealth: 10, mines: 1, stones: -20, alchemy: -5 }, opponentEffects: { towerHealth: -10, wallHealth: -5 }, description: 'You get +10 wall and +5 tower.  Opponent loses 10 wall and 5 tower.' },
+		{ name: "Rock golems", playerEffects: { towerHealth: 5, wallHealth: 10, mines: 1, stones: -20, alchemy: -5 }, opponentEffects: { towerHealth: -5, wallHealth: -10 }, description: 'You get +10 wall and +5 tower.  Opponent loses 10 wall and 5 tower.' },
 		{ name: "Nice lookin\' wall ya got there", playerEffects: { wallHealth: 15, stones: -18 }, opponentEffects: { }, description: '+15 wall.' },
 		{ name: "Heart of stone", playerEffects: { wallHealth: 20, towerHealth: 10, stones: -30 }, opponentEffects: { }, description: '+20 wall and +10 tower.' },
 
@@ -29,7 +29,7 @@ function CardService() {
 		{ name: "Plague of frogs", playerEffects: { minions: -8 }, opponentEffects: { wallHealth: -4, minions: -5 }, description: '-4 enemy wall and enemy loses 5 minions.' },
 		{ name: "Guerilla warfare", playerEffects: { minions: -8 }, opponentEffects: { wallHealth: -8 }, description: '-8 enemy wall.' },
 		{ name: "Hand of judgement", playerEffects: { minions: -11 }, opponentEffects: { wallHealth: -10 }, description: '-10 enemy wall.' },
-		{ name: "Knights of the Round Table", playerEffects: { minions: -15 }, opponentEffects: { wallHealth: -12 }, description: '-12 enemy wall.' },
+		{ name: "Knights of the Round", playerEffects: { minions: -15 }, opponentEffects: { wallHealth: -12 }, description: '-12 enemy wall.' },
 		{ name: "Dragon", playerEffects: { minions: -25 }, opponentEffects: { wallHealth: -20 }, description: '-20 enemy wall.' },
 		{ name: "Exodia", playerEffects: { minions: -100, alchemy: -100, stones: -100 }, opponentEffects: { towerHealth: -100 }, description: '-100 enemy tower.  Exodia, OBLITERATE!' },
 
@@ -92,7 +92,7 @@ function CardService() {
 			hand.push(result.cards[i]);
 		}
 
-		return deck;
+		return result.deck;
 	};
 
 	var removeCard = function(card, cards) {

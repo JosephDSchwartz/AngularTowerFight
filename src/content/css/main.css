@@ -90,6 +90,7 @@ hr {
 .cost {
 	position: absolute;
 	bottom: 0;
+	width: 100%;
 }
 
 
@@ -99,4 +100,16 @@ hr {
 
 .hide {
 	display: none;
+}
+
+.previousCard {
+	position: absolute;
+	float: right;
+	margin-top: 10px;
+	margin-left: 10px;
+	height: 50%;
+}
+
+.activePlayer {
+	color: #8E1919;
 }
